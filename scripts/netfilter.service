@@ -1,0 +1,10 @@
+[Unit]
+Description=Set sysctl net.netfilter.nf_conntrack_tcp_be_liberal to 1
+Wants=network-online.target
+Before=k3s.service
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/usr/local/bin/netfilter
+[Install]
+RequiredBy=k3s.service

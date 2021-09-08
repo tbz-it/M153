@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+echo "setting conntrack liberal" >/tmp/netfilter.log
+/sbin/modprobe br_netfilter >>/tmp/netfilter.log 2>&1
+/sbin/modprobe nf_nat_ipv4  >>/tmp/netfilter.log 2>&1
+sleep 10
+/sbin/sysctl -w net.netfilter.nf_conntrack_tcp_be_liberal=1 >> /tmp/netfilter.log 2>&1
+if [ $? -ne 0 ] ; then
+  echo "Failure" >>/tmp/netfilter.log
+else
+  echo "Success" >>/tmp/netfilter.log
+fi
+
+echo "Reading conntrack liberal" >>/tmp/netfilter.log
+/sbin/sysctl net.netfilter.nf_conntrack_tcp_be_liberal >> /tmp/netfilter.log 2>&1
