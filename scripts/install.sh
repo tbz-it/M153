@@ -10,5 +10,6 @@ sudo chown 999:999 /mysqldata
 export KUBECONFIG=$HOME/.kube/config
 kubectl apply -f ~/M153/mysql.yaml
 kubectl apply -f ~/M153/phpmyadmin.yaml
-cp $(dirname $0)/netfilter /usr/local/bin
-cp $(dirname $0)/netfilter.service /etc/systemd/system
+sudo cp $(dirname $0)/netfilter /usr/local/bin
+sudo cp $(dirname $0)/netfilter.service /etc/systemd/system
+sudo chmod 755 /usr/local/bin/netfilter
