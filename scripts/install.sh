@@ -16,4 +16,5 @@ export KUBECONFIG=$HOME/.kube/config
 kubectl apply -f ~/M153/mysql.yaml
 kubectl apply -f ~/M153/phpmyadmin.yaml
 
+sleep 60
 sudo reboot
