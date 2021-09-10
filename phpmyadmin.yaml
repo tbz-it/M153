@@ -8,7 +8,6 @@ metadata:
     tier: frontend
 spec:
   type: LoadBalancer
-  sessionAffinity: ClientIP
   ports:
   - port: 80
     protocol: TCP
