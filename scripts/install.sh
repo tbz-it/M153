@@ -10,3 +10,7 @@ sudo chown 999:999 /mysqldata
 export KUBECONFIG=$HOME/.kube/config
 kubectl apply -f ~/M153/mysql.yaml
 kubectl apply -f ~/M153/phpmyadmin.yaml
+
+sudo apt-get upgrade -y
+
+reboot
